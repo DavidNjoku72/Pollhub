@@ -5,7 +5,6 @@ import com.david.pollhub.entity.Poll;
 import com.david.pollhub.repository.PollRepository;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -18,12 +17,10 @@ public class PollService {
     }
 
     public Poll createPoll(PollDTO pollDTO) {
-
         Poll poll = new Poll();
 
         poll.setQuestion(pollDTO.getQuestion());
         poll.setCreatedBy(pollDTO.getCreatedBy());
-        poll.setCreatedAt(LocalDateTime.now());
 
         return pollRepository.save(poll);
     }
@@ -38,7 +35,6 @@ public class PollService {
     }
 
     public Poll updatePoll(Long id, PollDTO pollDTO) {
-
         Poll poll = getPollById(id);
 
         poll.setQuestion(pollDTO.getQuestion());
@@ -48,9 +44,7 @@ public class PollService {
     }
 
     public void deletePoll(Long id) {
-
         Poll poll = getPollById(id);
-
         pollRepository.delete(poll);
     }
 }

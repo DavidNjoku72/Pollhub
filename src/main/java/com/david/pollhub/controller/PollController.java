@@ -3,11 +3,14 @@ package com.david.pollhub.controller;
 import com.david.pollhub.dto.PollDTO;
 import com.david.pollhub.entity.Poll;
 import com.david.pollhub.service.PollService;
+
 import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/polls")
 public class PollController {
