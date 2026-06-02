@@ -36,4 +36,22 @@ public class PollServiceTest {
         assertEquals("Java", result.get(0).getQuestion());
         assertEquals("React", result.get(1).getQuestion());
     }
+
+    @Test
+    void testGetPollById() {
+
+        PollRepository mockRepository = Mockito.mock(PollRepository.class);
+
+        Poll poll1 = new Poll();
+        poll1.setQuestion("Java");
+
+        Mockito.when(mockRepository.findById(1L))
+                .thenReturn(java.util.Optional.of(poll1));
+
+        PollService pollService = new PollService(mockRepository);
+
+        Poll result = pollService.getPollById(1L);
+
+        assertEquals("Java", result.getQuestion());
+    }
 }
