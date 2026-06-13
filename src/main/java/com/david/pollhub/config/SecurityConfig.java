@@ -39,3 +39,5 @@ public class SecurityConfig {
         return new InMemoryUserDetailsManager(user);
     }
 }
+
+//use permit
